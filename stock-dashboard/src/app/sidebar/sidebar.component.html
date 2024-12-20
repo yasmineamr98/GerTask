@@ -1,0 +1,43 @@
+<div class="h-screen w-64 bg-gray-800 text-white flex flex-col">
+  <div class="text-lg font-bold p-4 border-b border-gray-700">
+    Companies
+  </div>
+  <ul class="flex-1 space-y-2 p-4">
+    <li>
+      <button
+        (click)="navigateToTab('exchange')"
+        [ngClass]="{
+          'bg-gray-700': activeTab === 'exchange',
+          'hover:bg-gray-700': activeTab !== 'exchange'
+        }"
+        class="block w-full text-left px-4 py-2 rounded cursor-pointer"
+      >
+        Exchange
+      </button>
+    </li>
+    <li>
+      <button
+        (click)="navigateToTab('candle')"
+        [ngClass]="{
+          'bg-gray-700': activeTab === 'candle',
+          'hover:bg-gray-700': activeTab !== 'candle'
+        }"
+        class="block w-full text-left px-4 py-2 rounded cursor-pointer"
+      >
+        Candle
+      </button>
+    </li>
+    <li>
+      <button
+        (click)="navigateToTab('metadata')"
+        [ngClass]="{
+          'bg-gray-700': activeTab === 'metadata',
+          'hover:bg-gray-700': activeTab !== 'metadata'
+        }"
+        class="block w-full text-left px-4 py-2 rounded cursor-pointer"
+      >
+        Metadata
+      </button>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="min-h-screen bg-cover bg-center" style="background-image: url('https://via.placeholder.com/1920x1080?text=Stock+Market+Background');">
+    <div class="container mx-auto py-8 text-white">
+      <h1 class="text-3xl font-bold mb-4">Exchange Companies</h1>
+
+      <!-- Data Table -->
+      <table class="min-w-full bg-gray-800 text-white rounded-lg">
+        <thead>
+          <tr class="text-left">
+            <th class="px-4 py-2">Symbol</th>
+            <th class="px-4 py-2">Name</th>
+            <th class="px-4 py-2">Type</th>
+            <th class="px-4 py-2">Country</th>
+            <th class="px-4 py-2">Currency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let company of paginatedData" class="hover:bg-gray-700">
+            <td class="px-4 py-2">{{ company.symbol }}</td>
+            <td class="px-4 py-2">{{ company.name }}</td>
+            <td class="px-4 py-2 capitalize">{{ company.type }}</td>
+            <td class="px-4 py-2">{{ company.country }}</td>
+            <td class="px-4 py-2">{{ company.currency }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Pagination -->
+      <div class="flex justify-center space-x-2 mt-4">
+        <button
+          class="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700"
+          [disabled]="currentPage === 1"
+          (click)="changePage(currentPage - 1)"
+        >
+          Previous
+        </button>
+        <button
+          class="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700"
+          [disabled]="currentPage === totalPages"
+          (click)="changePage(currentPage + 1)"
+        >
+          Next
+        </button>
+      </div>
+
+      <!-- Chart -->
+      <canvas id="stockChart" class="mt-8"></canvas>
+    </div>
+  </div>
+
+
+</body>
+</html>
