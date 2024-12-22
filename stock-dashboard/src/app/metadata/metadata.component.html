@@ -1,6 +1,3 @@
-<p>metadata works!</p>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +6,55 @@
   <title>Metadata</title>
 </head>
 <body>
-  <div class="min-h-screen bg-cover bg-center" style="background-image: url('https://via.placeholder.com/1920x1080?text=Metadata+Background');">
+  <div class="min-h-screen bg-cover bg-center" style="background-image: url('/stock-dashboard/src/assets/photos/stock1.jpg');">
     <div class="container mx-auto py-8 text-white">
       <h1 class="text-3xl font-bold mb-4">Metadata Companies</h1>
+
+      <!-- Search and Filter Section -->
+      <div class="flex justify-between mb-4">
+        <div class="flex space-x-4">
+          <!-- Search -->
+          <input
+            type="text"
+            placeholder="Search by Symbol or Name"
+            [(ngModel)]="searchQuery"
+            class="px-4 py-2 bg-gray-700 text-white rounded"
+            (input)="filterData()"
+          />
+
+          <!-- Filter by Type -->
+          <select [(ngModel)]="selectedType" class="px-4 py-2 bg-gray-700 text-white rounded" (change)="filterData()">
+            <option value="">All Types</option>
+            <option value="Stock">Stock</option>
+            <option value="ETF">ETF</option>
+            <option value="Currency">Currency</option>
+          </select>
+
+          <!-- Filter by Country -->
+          <select [(ngModel)]="selectedCountry" class="px-4 py-2 bg-gray-700 text-white rounded" (change)="filterData()">
+            <option value="">All Countries</option>
+            <option *ngFor="let country of uniqueCountries" [value]="country">{{ country }}</option>
+          </select>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex space-x-2">
+          <button
+            class="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700"
+            [disabled]="currentPage === 1"
+            (click)="changePage(currentPage - 1)"
+          >
+            Previous
+          </button>
+          <button
+            class="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700"
+            [disabled]="currentPage === totalPages"
+            (click)="changePage(currentPage + 1)"
+          >
+            Next
+          </button>
+        </div>
+      </div>
 
       <!-- Data Table -->
       <table class="min-w-full bg-gray-800 text-white rounded-lg">
@@ -35,26 +78,8 @@
         </tbody>
       </table>
 
-      <!-- Pagination -->
-      <div class="flex justify-center space-x-2 mt-4">
-        <button
-          class="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700"
-          [disabled]="currentPage === 1"
-          (click)="changePage(currentPage - 1)"
-        >
-          Previous
-        </button>
-        <button
-          class="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700"
-          [disabled]="currentPage === totalPages"
-          (click)="changePage(currentPage + 1)"
-        >
-          Next
-        </button>
-      </div>
-
       <!-- Chart -->
-      <canvas id="metadataChart" class="mt-8"></canvas>
+      <canvas id="metadataChart" class="mt-8 w-15 h-15 sm:h-15"></canvas>
     </div>
   </div>
 </body>

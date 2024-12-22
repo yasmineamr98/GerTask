@@ -1,60 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Stock Market Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="min-h-screen bg-cover bg-center" style="background-image: url('https://via.placeholder.com/1920x1080?text=Stock+Market+Background');">
+
+<body class="bg-gray-900 font-roboto">
+  <div class="min-h-screen bg-cover bg-center" style="background-image: url('https://images.app.goo.gl/WNv7grTDfkBXMY9C8');">
     <div class="container mx-auto py-8 text-white">
-      <h1 class="text-3xl font-bold mb-4">Exchange Companies</h1>
+      <h1 class="text-5xl font-extrabold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 drop-shadow-lg">Exchange Companies</h1>
+
+      <!-- Search and Filter Section -->
+      <div class="mb-6">
+        <div class="flex justify-between items-center">
+          <input type="text" placeholder="Search by name or symbol" [(ngModel)]="searchQuery" (input)="paginate()"
+            class="px-4 py-2 bg-gray-700 text-white rounded-lg w-1/3" />
+          <select [(ngModel)]="selectedType" (change)="paginate()" class="px-4 py-2 bg-gray-700 text-white rounded-lg w-1/4">
+            <option value="">Filter by Type</option>
+            <option value="stock">Stock</option>
+            <option value="cryptocurrency">Cryptocurrency</option>
+            <option value="fund">Fund</option>
+            <option value="mutual fund">Mutual Fund</option>
+            <option value="index">Index</option>
+            <option value="commodity">Commodity</option>
+            <option value="exchange traded commodity">Exchange Traded Commodity</option>
+            <option value="exchange traded fund">Exchange Traded Fund</option>
+          </select>
+          <select [(ngModel)]="selectedCountry" (change)="paginate()" class="px-4 py-2 bg-gray-700 text-white rounded-lg w-1/4">
+            <option value="">Filter by Country</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="UK">UK</option>
+            <option value="Germany">Germany</option>
+            <!-- Add more countries if needed -->
+          </select>
+        </div>
+      </div>
 
       <!-- Data Table -->
-      <table class="min-w-full bg-gray-800 text-white rounded-lg">
-        <thead>
-          <tr class="text-left">
-            <th class="px-4 py-2">Symbol</th>
-            <th class="px-4 py-2">Name</th>
-            <th class="px-4 py-2">Type</th>
-            <th class="px-4 py-2">Country</th>
-            <th class="px-4 py-2">Currency</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let company of paginatedData" class="hover:bg-gray-700">
-            <td class="px-4 py-2">{{ company.symbol }}</td>
-            <td class="px-4 py-2">{{ company.name }}</td>
-            <td class="px-4 py-2 capitalize">{{ company.type }}</td>
-            <td class="px-4 py-2">{{ company.country }}</td>
-            <td class="px-4 py-2">{{ company.currency }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="overflow-x-auto rounded-lg shadow-2xl bg-opacity-80 bg-gray-800 border-2 border-blue-600">
+        <table class="min-w-full text-white">
+          <thead class="bg-blue-600">
+            <tr>
+              <th class="px-6 py-3 text-left text-sm font-medium">Symbol</th>
+              <th class="px-6 py-3 text-left text-sm font-medium">Name</th>
+              <th class="px-6 py-3 text-left text-sm font-medium">Type</th>
+              <th class="px-6 py-3 text-left text-sm font-medium">Country</th>
+              <th class="px-6 py-3 text-left text-sm font-medium">Currency</th>
+            </tr>
+          </thead>
+          <tbody class="bg-gray-800 divide-y divide-gray-600">
+            <tr *ngFor="let company of paginatedData" class="hover:bg-blue-700 transition duration-300 ease-in-out">
+              <td class="px-6 py-4 text-sm">{{ company.symbol }}</td>
+              <td class="px-6 py-4 text-sm">{{ company.name }}</td>
+              <td class="px-6 py-4 text-sm capitalize">{{ company.type }}</td>
+              <td class="px-6 py-4 text-sm">{{ company.country }}</td>
+              <td class="px-6 py-4 text-sm">{{ company.currency }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <!-- Pagination -->
-      <div class="flex justify-center space-x-2 mt-4">
-        <button
-          class="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700"
+      <div class="flex justify-center space-x-6 mt-8">
+        <button class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105"
           [disabled]="currentPage === 1"
-          (click)="changePage(currentPage - 1)"
-        >
-          Previous
+          (click)="changePage(currentPage - 1)">
+          <i class="fas fa-chevron-left"></i> Previous
         </button>
-        <button
-          class="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700"
+        <span class="text-white text-lg font-medium">{{ currentPage }} of {{ totalPages }}</span>
+        <button class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105"
           [disabled]="currentPage === totalPages"
-          (click)="changePage(currentPage + 1)"
-        >
-          Next
+          (click)="changePage(currentPage + 1)">
+          Next <i class="fas fa-chevron-right"></i>
         </button>
       </div>
 
       <!-- Chart -->
-      <canvas id="stockChart" class="mt-8"></canvas>
+      <div class="mt-8">
+        <canvas id="stockChart" class="rounded-lg shadow-lg"></canvas>
+      </div>
+
+      <!-- Footer -->
+      <footer class="mt-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2024 Stock Market Dashboard | All Rights Reserved</p>
+      </footer>
+
     </div>
   </div>
 
-
+  <script>
+    // Chart.js code to initialize the stock chart
+    const ctx = document.getElementById('stockChart').getContext('2d');
+    const stockChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'], // Extended labels
+        datasets: [{
+          label: 'Stock Value',
+          data: [12, 19, 3, 5, 2, 3, 9, 12, 15], // Extended data
+          borderColor: '#3498db',
+          backgroundColor: 'rgba(52, 152, 219, 0.2)',
+          fill: true,
+          tension: 0.4,
+          borderWidth: 3
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: {
+              color: '#fff',
+            }
+          },
+          tooltip: {
+            backgroundColor: '#2c3e50',
+            titleColor: '#fff',
+            bodyColor: '#fff',
+            borderColor: '#3498db',
+            borderWidth: 2,
+          }
+        },
+        scales: {
+          x: {
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)',
+            },
+            ticks: {
+              color: '#fff'
+            }
+          },
+          y: {
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)',
+            },
+            ticks: {
+              color: '#fff'
+            }
+          }
+        }
+      }
+    });
+  </script>
 </body>
+
 </html>

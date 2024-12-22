@@ -1,25 +1,67 @@
-<p>candle works!</p>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Candle Data</title>
+  <!-- Font Awesome CDN included for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-  <div class="min-h-screen bg-cover bg-center" style="background-image: url('https://via.placeholder.com/1920x1080?text=Candle+Data');">
+  <div class="min-h-screen bg-cover bg-center" style="background-image: url('https://images.app.goo.gl/WNv7grTDfkBXMY9C8');">
     <div class="container mx-auto py-8 text-white">
       <h1 class="text-3xl font-bold mb-4">Candle Data</h1>
+
+      <!-- Search and Filter Section -->
+      <div class="flex justify-between mb-4">
+        <input
+          type="text"
+          class="px-4 py-2 bg-gray-700 text-white rounded"
+          placeholder="Search by Symbol"
+          [(ngModel)]="searchTerm"
+          (input)="applyFilters()"
+        />
+        <select
+          class="px-4 py-2 bg-gray-700 text-white rounded"
+          [(ngModel)]="selectedCurrency"
+          (change)="applyFilters()"
+        >
+          <option value="">Filter by Currency</option>
+          <option *ngFor="let currency of uniqueCurrencies" [value]="currency">{{ currency }}</option>
+        </select>
+      </div>
 
       <!-- Data Table -->
       <table class="min-w-full bg-gray-800 text-white rounded-lg">
         <thead>
           <tr class="text-left">
-            <th class="px-4 py-2">Symbol</th>
-            <th class="px-4 py-2">Start Price</th>
-            <th class="px-4 py-2">End Price</th>
-            <th class="px-4 py-2">Volume</th>
-            <th class="px-4 py-2">Currency</th>
+            <th class="px-4 py-2">
+              Symbol
+              <button (click)="sortData('symbol')" class="ml-2 cursor-pointer">
+                <i class="fas" [ngClass]="{'fa-arrow-up': sortColumn === 'symbol' && sortOrder === 'asc', 'fa-arrow-down': sortColumn === 'symbol' && sortOrder === 'desc'}"></i>
+              </button>
+            </th>
+            <th class="px-4 py-2">
+              Start Price
+              <button (click)="sortData('startPrice')" class="ml-2 cursor-pointer">
+                <i class="fas" [ngClass]="{'fa-arrow-up': sortColumn === 'startPrice' && sortOrder === 'asc', 'fa-arrow-down': sortColumn === 'startPrice' && sortOrder === 'desc'}"></i>
+              </button>
+            </th>
+            <th class="px-4 py-2">
+              End Price
+              <button (click)="sortData('endPrice')" class="ml-2 cursor-pointer">
+                <i class="fas" [ngClass]="{'fa-arrow-up': sortColumn === 'endPrice' && sortOrder === 'asc', 'fa-arrow-down': sortColumn === 'endPrice' && sortOrder === 'desc'}"></i>
+              </button>
+            </th>
+            <th class="px-4 py-2">
+              Volume
+              <button (click)="sortData('volume')" class="ml-2 cursor-pointer">
+                <i class="fas" [ngClass]="{'fa-arrow-up': sortColumn === 'volume' && sortOrder === 'asc', 'fa-arrow-down': sortColumn === 'volume' && sortOrder === 'desc'}"></i>
+              </button>
+            </th>
+            <th class="px-4 py-2">
+              Currency
+            </th>
           </tr>
         </thead>
         <tbody>

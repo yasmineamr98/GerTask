@@ -1,6 +1,62 @@
 {
-  "COMPANIES": "Companies",
-  "SIDEBAR": "Sidebar",
-  "LANG_EN": "English",
-  "LANG_DE": "Deutsch"
+  "NAVBAR": {
+    "SEARCH_PLACEHOLDER": "Search by Name, ID, or Currency...",
+    "ABOUT": "About",
+    "HOME": "Home",
+    "CONTACT": "Contact"
+  },
+
+  "ABOUT":{
+    "TITLE": "About Investify",
+
+    "CONTENT": "Investify is a leading platform dedicated to empowering individuals and businesses to navigate the complexities of the stock market with confidence. Established with a vision to democratize investing, Investify combines cutting-edge technology, expert insights, and a user-centric approach to make stock market trading accessible and rewarding for everyone.\n\nOur platform provides a comprehensive suite of tools, including real-time market data, personalized investment recommendations, and advanced analytics, tailored to meet the diverse needs of our users. Whether you're a seasoned trader or a first-time investor, Investify equips you with the knowledge and resources needed to make informed financial decisions.\n\nAt Investify, we prioritize transparency, security, and innovation. With a global community of investors, we aim to foster financial literacy and empower our users to achieve their financial goals. Our team of experienced professionals is committed to delivering unparalleled service and creating a seamless trading experience.\n\nInvest in your future with Investify—where possibilities meet expertise."
+
+  },
+  "CONTACT": {
+    "TITLE": "Contact Us",
+    "PHONE": "Phone",
+    "EMAIL": "Email",
+    "ADDRESS": "Address",
+    "PHONE_VALUE": "+1 (800) 123-4567",
+    "EMAIL_VALUE": "support@investify.com",
+    "ADDRESS_VALUE": "123 Wall Street, New York, NY 10005, USA"
+  },
+
+
+  "terms_date": "Effective Date: [Insert Date]",
+  "terms_acceptance": "By accessing and using the platform, you agree to be bound by these Terms and Conditions.",
+  "terms_services": "We provide a platform for stock market investments including real-time data, stock analysis, and transaction features.",
+  "terms_eligibility": "You must be at least 18 years old and legally capable of entering into binding contracts.",
+  "terms_account": "To use certain features, you must create an account with accurate information.",
+  "terms_responsibilities": "You are responsible for maintaining the confidentiality of your account credentials.",
+  "terms_fees": "We may charge fees for certain services.",
+  "terms_privacy": "We handle your personal data in accordance with our Privacy Policy.",
+  "terms_disclaimers": "We do not guarantee the accuracy of the platform’s information.",
+  "terms_liability": "We are not liable for any indirect damages from your use of the services.",
+  "terms_termination": "We may suspend or terminate your account if you violate the terms.",
+  "terms_law": "These terms are governed by the laws of [Jurisdiction].",
+  "terms_changes": "We may update these terms, and the latest version will be posted on the platform.",
+
+  "privacy_date": "Effective Date: [Insert Date]",
+  "privacy_information_collection": "We collect personal data when you use our platform, including your name, email, and financial details.",
+  "privacy_use_information": "We use your data to provide requested services and communicate with you.",
+  "privacy_data_security": "We implement security measures to protect your personal data.",
+  "privacy_sharing_information": "We may share your data with third-party service providers.",
+  "privacy_cookies": "We use cookies to enhance your user experience.",
+  "privacy_user_rights": "You have the right to access, correct, or delete your data.",
+  "privacy_data_retention": "We retain your personal data as long as necessary for our services.",
+  "privacy_changes": "We may update this Privacy Policy and will notify users of any changes.",
+  "Home": "Home",
+  "About": "About",
+  "Contact": "Contact",
+  "TTerms&Conditions": "Terms and Conditions",
+  "Policy": "Privacy Policy"
+
 }
+
+
+
+
+
+
+

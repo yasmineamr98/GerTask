@@ -1,6 +1,62 @@
 {
-  "COMPANIES": "Unternehmen",
-  "SIDEBAR": "Seitenleiste",
-  "LANG_EN": "Englisch",
-  "LANG_DE": "Deutsch"
+  "NAVBAR": {
+    "SEARCH_PLACEHOLDER": "Suchen Sie nach Name, ID oder Währung...",
+    "ABOUT": "Über uns",
+    "HOME": "Startseite",
+    "CONTACT": "Kontakt"
+  },
+
+  "ABOUT":{
+    "TITLE": "Über Investify",
+      "CONTENT": "Investify ist eine führende Plattform, die es Einzelpersonen und Unternehmen ermöglicht, die Komplexitäten des Aktienmarkts mit Zuversicht zu meistern. Mit der Vision gegründet, Investitionen zu demokratisieren, kombiniert Investify modernste Technologie, Expertenwissen und einen benutzerzentrierten Ansatz, um den Handel auf dem Aktienmarkt zugänglich und lohnend für alle zu machen.\n\nUnsere Plattform bietet eine umfassende Palette an Werkzeugen, darunter Echtzeit-Marktdaten, personalisierte Anlageempfehlungen und fortschrittliche Analysen, die auf die unterschiedlichen Bedürfnisse unserer Nutzer zugeschnitten sind. Egal, ob Sie ein erfahrener Händler oder ein Erstinvestor sind, Investify stellt Ihnen das Wissen und die Ressourcen zur Verfügung, die Sie für fundierte finanzielle Entscheidungen benötigen.\n\nBei Investify legen wir Wert auf Transparenz, Sicherheit und Innovation. Mit einer globalen Gemeinschaft von Investoren streben wir danach, die Finanzkompetenz zu fördern und unsere Nutzer zu befähigen, ihre finanziellen Ziele zu erreichen. Unser Team erfahrener Fachleute ist bestrebt, unvergleichlichen Service zu bieten und ein nahtloses Handelserlebnis zu schaffen.\n\nInvestieren Sie in Ihre Zukunft mit Investify—wo Möglichkeiten auf Fachwissen treffen."
+  },
+  "CONTACT": {
+    "TITLE": "Kontaktieren Sie uns",
+    "PHONE": "Telefon",
+    "EMAIL": "E-Mail",
+    "ADDRESS": "Adresse",
+    "PHONE_VALUE": "+49 (800) 123-4567",
+    "EMAIL_VALUE": "support@investify.de",
+    "ADDRESS_VALUE": "123 Wallstraße, Berlin, 10179, Deutschland"
+  },
+
+
+  "terms_date": "Gültigkeitsdatum: [Datum einfügen]",
+  "terms_acceptance": "Durch den Zugriff auf und die Nutzung der Plattform erklären Sie sich mit diesen Allgemeinen Geschäftsbedingungen einverstanden.",
+  "terms_services": "Wir bieten eine Plattform für Investitionen in den Aktienmarkt, einschließlich Echtzeitdaten, Aktienanalysen und Transaktionsfunktionen.",
+  "terms_eligibility": "Sie müssen mindestens 18 Jahre alt sein und in der Lage sein, verbindliche Verträge abzuschließen.",
+  "terms_account": "Um bestimmte Funktionen zu nutzen, müssen Sie ein Konto mit genauen Informationen erstellen.",
+  "terms_responsibilities": "Sie sind dafür verantwortlich, die Vertraulichkeit Ihrer Kontodaten zu wahren.",
+  "terms_fees": "Wir können für bestimmte Dienstleistungen Gebühren erheben.",
+  "terms_privacy": "Wir behandeln Ihre persönlichen Daten gemäß unserer Datenschutzrichtlinie.",
+  "terms_disclaimers": "Wir garantieren nicht die Genauigkeit der Informationen auf der Plattform.",
+  "terms_liability": "Wir haften nicht für indirekte Schäden, die durch die Nutzung der Dienste entstehen.",
+  "terms_termination": "Wir können Ihr Konto sperren oder kündigen, wenn Sie gegen diese Bedingungen verstoßen.",
+  "terms_law": "Diese Bedingungen unterliegen den Gesetzen von [Jurisdiktion].",
+  "terms_changes": "Wir können diese Bedingungen aktualisieren, und die neueste Version wird auf der Plattform veröffentlicht.",
+
+  "privacy_date": "Gültigkeitsdatum: [Datum einfügen]",
+  "privacy_information_collection": "Wir erheben persönliche Daten, wenn Sie unsere Plattform nutzen, einschließlich Ihres Namens, Ihrer E-Mail-Adresse und finanzieller Daten.",
+  "privacy_use_information": "Wir verwenden Ihre Daten, um angeforderte Dienstleistungen bereitzustellen und mit Ihnen zu kommunizieren.",
+  "privacy_data_security": "Wir ergreifen Sicherheitsmaßnahmen, um Ihre persönlichen Daten zu schützen.",
+  "privacy_sharing_information": "Wir können Ihre Daten mit Drittanbietern teilen.",
+  "privacy_cookies": "Wir verwenden Cookies, um Ihre Benutzererfahrung zu verbessern.",
+  "privacy_user_rights": "Sie haben das Recht, auf Ihre Daten zuzugreifen, sie zu korrigieren oder zu löschen.",
+  "privacy_data_retention": "Wir bewahren Ihre persönlichen Daten so lange auf, wie es für unsere Dienste erforderlich ist.",
+  "privacy_changes": "Wir können diese Datenschutzrichtlinie aktualisieren und Benutzer über Änderungen informieren.",
+
+
+    "Home": "Startseite",
+    "About": "Über uns",
+    "Contact": "Kontakt",
+    "Terms&Conditions": "Allgemeine Geschäftsbedingungen",
+    "Policy": "Datenschutzrichtlinie"
+
+
+
 }
+
+
+
+
+

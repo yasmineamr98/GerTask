@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import Chart from 'chart.js/auto';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-exchange',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule,FormsModule],
   templateUrl: './exchange.component.html',
   styleUrls: ['./exchange.component.css'], // Corrected property name
 })
@@ -16,6 +17,11 @@ export class ExchangeComponent implements OnInit {
   currentPage = 1;
   itemsPerPage = 5;
   totalPages = 0;
+
+  // Search and filter properties
+  searchQuery: string = '';
+  selectedType: string = '';
+  selectedCountry: string = '';
 
   constructor(private http: HttpClient) {}
 
@@ -60,9 +66,36 @@ export class ExchangeComponent implements OnInit {
   }
 
   paginate() {
+    let filteredCompanies = this.companies;
+
+    // Apply search filter
+    if (this.searchQuery) {
+      filteredCompanies = filteredCompanies.filter((company) =>
+        company.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+        company.symbol.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+    }
+
+    // Apply type filter
+    if (this.selectedType) {
+      filteredCompanies = filteredCompanies.filter(
+        (company) => company.type.toLowerCase() === this.selectedType.toLowerCase()
+      );
+    }
+
+    // Apply country filter
+    if (this.selectedCountry) {
+      filteredCompanies = filteredCompanies.filter(
+        (company) => company.country.toLowerCase() === this.selectedCountry.toLowerCase()
+      );
+    }
+
+    // Setup pagination after applying filters
+    this.totalPages = Math.ceil(filteredCompanies.length / this.itemsPerPage);
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    this.paginatedData = this.companies.slice(startIndex, endIndex);
+    this.paginatedData = filteredCompanies.slice(startIndex, endIndex);
+
     console.log('Paginated data:', this.paginatedData); // Debugging: Verify paginated data
   }
 

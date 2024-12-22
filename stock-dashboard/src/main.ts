@@ -1,48 +1,32 @@
-// import { appRouter } from './app/app.routes'; // Import the routes
-// import { bootstrapApplication } from '@angular/platform-browser';
-// import { AppComponent } from './app/app.component';
-// import { appRoutes } from './app/app.routes';
-// import { provideRouter } from '@angular/router';
-// import { provideHttpClient } from '@angular/common/http';
-// import { NavbarComponent } from './app/navbar/navbar.component';
-// import { SidebarComponent } from './app/sidebar/sidebar.component';
-
-
-// bootstrapApplication(AppComponent, {
-//   providers: [
-//     appRouter,       // Provide the routes
-//     provideHttpClient(), // Required for HTTP calls
-//   ],
-// }).catch((err) => console.error(err));
-
-
-import { AppComponent } from './app/app.component';
-import { appRouter } from './app/app.routes'; // Import the routes
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appRoutes } from './app/app.routes';
-import { provideRouter } from '@angular/router';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
-import { NavbarComponent } from './app/navbar/navbar.component';
-import { SidebarComponent } from './app/sidebar/sidebar.component';
+import { AppComponent } from './app/app.component';
+import { provideHttpClient, HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule, TranslateService, TranslateStore } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateLoader } from '@ngx-translate/core';
-
-
-
+import { importProvidersFrom } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { appRoutes,} from './app/app.routes';
+// Factory function to load translation files
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, '../src/assets/language');
+  return new TranslateHttpLoader(http); // Ensure the path is correct
 }
 
-bootstrapApplication(AppComponent, {
+const appConfig = {
   providers: [
-    appRouter,           // Provide routes
-    provideHttpClient(),
+    importProvidersFrom(
+      RouterModule.forRoot(appRoutes),
+      HttpClientModule,
+      TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient],
+        },
+      })
+    )
+  ]
+};
 
-    {
-      provide: TranslateLoader,
-      useFactory: HttpLoaderFactory,
-      deps: [HttpClient],
-    },
-    // Provide HttpClient
-  ],
-}).catch((err) => console.error(err));
+bootstrapApplication(AppComponent, appConfig)
+  .catch((err) => console.error(err));
+

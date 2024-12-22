@@ -2,20 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import Chart from 'chart.js/auto';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-metadata',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule, FormsModule],
   templateUrl: './metadata.component.html',
   styleUrls: ['./metadata.component.css'], // Correct property name
 })
 export class MetadataComponent implements OnInit {
   metadata: any[] = [];
   paginatedData: any[] = [];
+  searchQuery: string = '';
+  selectedType: string = '';
+  selectedCountry: string = '';
   currentPage = 1;
   itemsPerPage = 5;
   totalPages = 0;
+  uniqueCountries: string[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -34,6 +39,9 @@ export class MetadataComponent implements OnInit {
 
       // Filter relevant data
       this.metadata = extractedData.filter((item: any) => item.symbol && item.type);
+
+      // Extract unique countries
+      this.uniqueCountries = [...new Set(this.metadata.map(item => item.countryName))];
 
       console.log('Filtered metadata:', this.metadata);
 
@@ -58,6 +66,34 @@ export class MetadataComponent implements OnInit {
     this.paginate();
   }
 
+  filterData() {
+    let filteredData = this.metadata;
+
+    // Search filter
+    if (this.searchQuery) {
+      filteredData = filteredData.filter(item =>
+        item.symbol.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+        item.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+    }
+
+    // Type filter
+    if (this.selectedType) {
+      filteredData = filteredData.filter(item => item.type === this.selectedType);
+    }
+
+    // Country filter
+    if (this.selectedCountry) {
+      filteredData = filteredData.filter(item => item.countryName === this.selectedCountry);
+    }
+
+    // Update pagination and table data
+    this.metadata = filteredData;
+    this.totalPages = Math.ceil(filteredData.length / this.itemsPerPage);
+    this.currentPage = 1; // Reset to the first page after filtering
+    this.paginate();
+  }
+
   createChart() {
     const chartData = this.metadata.reduce((acc: any, item) => {
       acc[item.type] = (acc[item.type] || 0) + 1;
@@ -75,8 +111,8 @@ export class MetadataComponent implements OnInit {
           {
             label: 'Metadata Types',
             data: values,
-            backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(255, 205, 86, 0.2)'],
-            borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)', 'rgba(255, 205, 86, 1)'],
+            backgroundColor: ['#28a745', '#007bff', '#ffc107'], // Green, Blue, Yellow for professional tones
+            borderColor: ['#218838', '#0069d9', '#e0a800'],
             borderWidth: 1,
           },
         ],
@@ -86,9 +122,22 @@ export class MetadataComponent implements OnInit {
         plugins: {
           legend: {
             position: 'top',
+            labels: {
+              font: {
+                size: 14,
+                weight: 'bold',
+              },
+            },
+          },
+          tooltip: {
+            enabled: true,
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            titleFont: { size: 14, weight: 'bold' },
+            bodyFont: { size: 12 },
           },
         },
       },
     });
   }
+
 }
