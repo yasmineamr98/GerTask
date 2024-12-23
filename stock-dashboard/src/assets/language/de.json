@@ -20,6 +20,12 @@
     "ADDRESS_VALUE": "123 Wallstraße, Berlin, 10179, Deutschland"
   },
 
+"SIDEBAR": {
+    "TRADING_STOCK": "Handel mit Aktien",
+    "EXCHANGE": "Börse",
+    "CANDLE": "Kerze",
+    "METADATA": "Metadaten"
+  },
 
   "terms_date": "Gültigkeitsdatum: [Datum einfügen]",
   "terms_acceptance": "Durch den Zugriff auf und die Nutzung der Plattform erklären Sie sich mit diesen Allgemeinen Geschäftsbedingungen einverstanden.",
@@ -50,11 +56,52 @@
     "About": "Über uns",
     "Contact": "Kontakt",
     "Terms&Conditions": "Allgemeine Geschäftsbedingungen",
-    "Policy": "Datenschutzrichtlinie"
+    "Policy": "Datenschutzrichtlinie",
+
+
+    "EXCHANGE_COMPANIES": "Börsengesellschaften",
+  "SEARCH_PLACEHOLDER": "Suche nach Name oder Symbol",
+  "FILTER_TYPE": "Nach Typ filtern",
+  "FILTER_COUNTRY": "Nach Land filtern",
+  "SYMBOL": "Symbol",
+  "NAME": "Name",
+  "TYPE": "Typ",
+  "COUNTRY": "Land",
+  "CURRENCY": "Währung",
+  "PREVIOUS": "Vorherige",
+  "NEXT": "Nächste",
+  "OF": "von",
+  "FOOTER_TEXT": "Aktienmarkt-Dashboard | Alle Rechte vorbehalten",
+  "CHART_LABEL": "Aktienwert",
 
 
 
-}
+    "EXCHANGE_COMPANIES": "Börsenunternehmen",
+    "SEARCH_PLACEHOLDER": "Nach Name oder Symbol suchen",
+    "FILTER_TYPE": "Nach Typ filtern",
+    "STOCK": "Aktie",
+    "CRYPTOCURRENCY": "Kryptowährung",
+    "FUND": "Fonds",
+    "MUTUAL_FUND": "Investmentfonds",
+    "INDEX": "Index",
+    "COMMODITY": "Rohstoff",
+    "EXCHANGE_TRADED_COMMODITY": "Börsengehandelter Rohstoff",
+    "EXCHANGE_TRADED_FUND": "Börsengehandelter Fonds",
+    "FILTER_COUNTRY": "Nach Land filtern",
+    "GERMANY": "Deutschland",
+    "SYMBOL": "Symbol",
+    "NAME": "Name",
+    "TYPE": "Typ",
+    "COUNTRY": "Land",
+    "CURRENCY": "Währung",
+    "PREVIOUS": "Zurück",
+    "NEXT": "Weiter",
+    "OF": "von",
+    "CHART_LABEL": "Unternehmensverteilung nach Typ",
+    "FOOTER_TEXT": "Alle Rechte vorbehalten."
+  }
+
+
 
 
 

@@ -11,7 +11,7 @@
       <div class="flex justify-between items-center h-16">
         <!-- Logo -->
         <div class="flex items-center">
-          <img src="assets/photos/logo.png" alt="Logo" class="h-12 w-12">
+          <img src="assets/photos/logo.jpg" alt="Logo" class="h-11 w-11">
           <a routerLink="/" class="ml-4 text-xl font-bold hover:underline">INVESTIFY</a>
         </div>
 
@@ -22,27 +22,27 @@
             placeholder="{{ 'NAVBAR.SEARCH_PLACEHOLDER' | translate }}"
             [(ngModel)]="searchTerm"
             (input)="onSearch()"
-            class="w-full px-4 py-2 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="w-full px-4 py-2 rounded-lg bg-white-800 text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
 
         <!-- Navigation Links -->
         <div class="hidden md:flex space-x-6">
-          <a routerLink="/exchange" class="hover:underline">{{ 'NAVBAR.HOME' | translate }}</a>
-          <a routerLink="/about"class="hover:underline cursor-pointer">{{ 'NAVBAR.ABOUT' | translate }}</a>
+          <a routerLink="/exchange" class="hover:underline cursor-pointer">{{ 'NAVBAR.HOME' | translate }}</a>
+          <a routerLink="/about"class="hover:underline cursor-pointer">{{ 'NAVBAR.ABOUT' | translate }} </a>
           <a routerLink="/contact" class="hover:underline cursor-pointer">{{ 'NAVBAR.CONTACT' | translate }}</a>
         </div>
 
         <!-- Language Toggle -->
         <div class="hidden md:flex space-x-4">
           <button
-            class="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 focus:outline-none"
+            class="px-6 py-3 bg-blue-700 text-white font-semibold rounded-full shadow-md hover:bg-blue-900 transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer"
             (click)="toggleLanguage('en')"
           >
             EN
           </button>
           <button
-            class="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 focus:outline-none"
+            class="px-6 py-3 bg-blue-700 text-white font-semibold rounded-full shadow-md hover:bg-blue-900 transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer"
             (click)="toggleLanguage('de')"
           >
             DE
@@ -61,10 +61,10 @@
     </div>
   </nav>
 
-  <!-- Display Not Found -->
+  <!-- Display Not Found
   <div *ngIf="noResultsFound" class="container mx-auto mt-8 text-center text-red-500">
     <h2 class="text-2xl font-bold">404 - Not Found</h2>
     <p>{{ 'NAVBAR.NOT_FOUND' | translate }}</p>
-  </div>
+  </div> -->
 </body>
 </html>

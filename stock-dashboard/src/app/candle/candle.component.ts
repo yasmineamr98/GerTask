@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // Import FormsModule for two-way data binding
-import Chart from 'chart.js/auto';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-candle',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, FormsModule], // Add FormsModule here
+  imports: [CommonModule, HttpClientModule, FormsModule, TranslateModule, RouterModule], // Add FormsModule here
   templateUrl: './candle.component.html',
   styleUrls: ['./candle.component.css'],
 })
@@ -24,8 +26,9 @@ export class CandleComponent implements OnInit {
   sortColumn: string = ''; // For the column to sort
   sortOrder: 'asc' | 'desc' = 'asc'; // Sort order, default is ascending
 
-  constructor(private http: HttpClient) {}
-
+  constructor(private http: HttpClient, private translate: TranslateService) {
+    this.translate.setDefaultLang('en'); // Set default language
+  }
   ngOnInit() {
     this.fetchData();
   }
@@ -34,7 +37,7 @@ export class CandleComponent implements OnInit {
     this.http.get<any>('assets/candle.json').subscribe((data) => {
       console.log('Raw data:', data);
 
-      // Extract the `_source` data from hits
+      // Extract the _source data from hits
       const extractedData = data.hits.hits.map((hit: any) => hit._source);
 
       console.log('Extracted data:', extractedData);
@@ -104,42 +107,33 @@ export class CandleComponent implements OnInit {
     const labels = Object.keys(chartData);
     const values = Object.values(chartData) as number[];
 
-    new Chart('candleChart', {
-      type: 'line',
+    const ctx = document.getElementById('candleChart') as HTMLCanvasElement;
+
+    new Chart(ctx, {
+      type: 'bar',
       data: {
-        labels,
-        datasets: [
-          {
-            label: 'Volume by Symbol',
-            data: values,
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1,
-          },
-        ],
+        labels: labels,
+        datasets: [{
+          label: 'Candle Volume',
+          data: values,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1,
+        }]
       },
       options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            display: true,
-          },
-        },
-      },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
     });
   }
 
-  // Sort the data by the selected column
   sortData(column: string) {
-    // If the clicked column is already the current one, toggle the sort order
-    if (this.sortColumn === column) {
-      this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
-    } else {
-      this.sortColumn = column;
-      this.sortOrder = 'asc'; // Reset to ascending when a new column is clicked
-    }
-
-    // Apply sorting and pagination after sorting
+    this.sortOrder = this.sortColumn === column && this.sortOrder === 'asc' ? 'desc' : 'asc';
+    this.sortColumn = column;
     this.paginate();
   }
 }

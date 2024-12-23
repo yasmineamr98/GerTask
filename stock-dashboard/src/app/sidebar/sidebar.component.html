@@ -1,42 +1,42 @@
-<div class="h-screen w-64 bg-gray-800 text-white flex flex-col">
-  <div class="text-lg font-bold p-4 border-b border-gray-700">
-    Companies
+<div class="h-full w-64 bg-blue-900 text-white flex flex-col">
+  <div class="text-lg font-bold p-4 border-b border-blue-300 cursor-pointer">
+    {{ 'SIDEBAR.TRADING_STOCK' | translate }}
   </div>
   <ul class="flex-1 space-y-2 p-4">
     <li>
       <button
         (click)="navigateToTab('exchange')"
         [ngClass]="{
-          'bg-gray-700': activeTab === 'exchange',
-          'hover:bg-gray-700': activeTab !== 'exchange'
+          'bg-white text-blue-900': activeTab === 'exchange',
+          'hover:bg-white hover:text-blue-900 transition duration-300': activeTab !== 'exchange'
         }"
         class="block w-full text-left px-4 py-2 rounded cursor-pointer"
       >
-        Exchange
+        {{ 'SIDEBAR.EXCHANGE' | translate }}
       </button>
     </li>
     <li>
       <button
         (click)="navigateToTab('candle')"
         [ngClass]="{
-          'bg-gray-700': activeTab === 'candle',
-          'hover:bg-gray-700': activeTab !== 'candle'
+          'bg-white text-blue-900': activeTab === 'candle',
+          'hover:bg-white hover:text-blue-900 transition duration-300': activeTab !== 'candle'
         }"
         class="block w-full text-left px-4 py-2 rounded cursor-pointer"
       >
-        Candle
+        {{ 'SIDEBAR.CANDLE' | translate }}
       </button>
     </li>
     <li>
       <button
         (click)="navigateToTab('metadata')"
         [ngClass]="{
-          'bg-gray-700': activeTab === 'metadata',
-          'hover:bg-gray-700': activeTab !== 'metadata'
+          'bg-white text-blue-900': activeTab === 'metadata',
+          'hover:bg-white hover:text-blue-900 transition duration-300': activeTab !== 'metadata'
         }"
         class="block w-full text-left px-4 py-2 rounded cursor-pointer"
       >
-        Metadata
+        {{ 'SIDEBAR.METADATA' | translate }}
       </button>
     </li>
   </ul>

@@ -1,39 +1,184 @@
-<footer class="bg-gray-900 text-white shadow-md py-8">
+<footer class="bg-blue-900 text-white shadow-md">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col md:flex-row justify-between items-center">
+    <div class="flex justify-between items-center h-16">
       <!-- Logo and Branding -->
-      <div class="flex flex-col items-center md:items-start">
-        <img src="assets/photos/logo.png" alt="Logo" class="h-12 w-12 mb-4">
-        <a routerLink="/" class="text-2xl font-bold hover:underline mb-2">INVESTIFY</a>
-        <p class="text-sm text-gray-400">© 2024 INVESTIFY. All Rights Reserved.</p>
+      <div class="flex items-center">
+        <img src="assets/photos/logo.jpg" alt="Logo" class="h-12 w-12">
+        <a routerLink="/" class="ml-4 text-xl font-bold hover:underline">INVESTIFY</a>
+
       </div>
 
       <!-- Links Section -->
-      <div class="flex flex-col md:flex-row items-center space-y-6 md:space-x-12 md:space-y-0">
-        <a routerLink="/exchange" class="hover:underline text-lg cursor-pointer" >{{'Home' | translate}}</a>
-        <a routerLink="/about" class="hover:underline text-lg cursor-pointer">{{'About' | translate}}</a>
-        <a  routerLink="/contact"class="hover:underline text-lg cursor-pointer">{{'Contact' | translate}}</a>
-        <a routerLink="/termsandcondition" class="hover:underline text-lg cursor-pointer"> {{'Terms&Conditions' | translate}}</a>
-        <a routerLink="/policy" class="hover:underline text-lg cursor-pointer">{{'Policy' | translate}}</a>
+      <div class="hidden md:flex space-x-6">
+        <a routerLink="/exchange" class="hover:underline cursor-pointer">{{'Home' | translate}}</a>
+        <a routerLink="/about" class="hover:underline cursor-pointer">{{'About' | translate}}</a>
+        <a routerLink="/contact" class="hover:underline cursor-pointer">{{'Contact' | translate}}</a>
+        <a routerLink="/termsandcondition" class="hover:underline cursor-pointer">{{'Terms&Conditions' | translate}}</a>
+        <a routerLink="/policy" class="hover:underline cursor-pointer">{{'Policy' | translate}}</a>
       </div>
 
       <!-- Social Media Links -->
-      <div class="flex space-x-6 mt-6 md:mt-0">
-        <a href="#" target="_blank" class="text-gray-400 hover:text-white" cursor="pointer">
+      <div class="flex space-x-6">
+        <a href="#" target="_blank" class="text-gray-400 hover:text-white cursor-pointer">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 9h6M9 12h6m-3 3v2m-2 0H6a2 2 0 01-2-2V6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2v-3h5v2h4v-2h3v-3H9z" />
           </svg>
         </a>
-        <a href="#" target="_blank" class="text-gray-400 hover:text-white" cursor="pointer">
+        <a href="#" target="_blank" class="text-gray-400 hover:text-white cursor-pointer">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M22 12.5c0 1.66-.67 3.16-1.76 4.24-.4.4-.85.76-1.36 1.08-.23.15-.46.3-.7.44-.8.43-1.65.78-2.54.95-.13.04-.26.08-.39.12-.33.08-.67.16-1.01.24-.28.06-.56.13-.85.19-.62.15-1.25.29-1.89.42-.03-.03-.07-.07-.1-.1-.03-.03-.05-.07-.08-.1-.68-.67-1.27-1.35-1.8-2.04-.33-.48-.65-.97-.94-1.46-1.55-2.23-2.89-4.65-4.02-7.17-.09-.19-.18-.37-.27-.56-.24-.51-.47-1.02-.7-1.53-.36-.77-.71-1.55-1.04-2.34.1-.19.2-.38.31-.56.35-.62.71-1.24 1.07-1.86.29-.48.59-.96.89-1.45-.53-.1-1.07-.2-1.61-.29C12.24 2.7 9.57 1 6.73 1 2.75 1 0 3.74 0 6.75c0 3.68 2.8 6.75 6.28 6.75h2.5c1.23 0 2.45-.62 3.1-1.68 1.03 1.19 2.45 1.85 4.02 1.85 1.77 0 3.47-.68 4.75-1.85 1.14-1.03 1.85-2.44 1.85-4.02z" />
           </svg>
         </a>
-        <a href="#" target="_blank" class="text-gray-400 hover:text-white" cursor="pointer" >
+        <a href="#" target="_blank" class="text-gray-400 hover:text-white cursor-pointer">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 16c-3.59 0-6.5-2.91-6.5-6.5S8.41 5 12 5s6.5 2.91 6.5 6.5S15.59 18 12 18zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
           </svg>
         </a>
+      </div>
+    </div>
+  </div>
+
+<!--Footer container-->
+<footer
+  class="flex flex-col items-center bg-zinc-50 text-center text-surface dark:bg-blue-900 dark:text-white">
+  <div class="container pt-9">
+    <!-- Social media icons container -->
+    <div class="mb-6 flex justify-center space-x-2">
+      <a
+        href="#!"
+        type="button"
+        class="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+        data-twe-ripple-init>
+        <span class="[&>svg]:h-5 [&>svg]:w-5">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 320 512">
+            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+            <path
+              d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z" />
+          </svg>
+        </span>
+      </a>
+
+      <a
+        href="#!"
+        type="button"
+        class="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+        data-twe-ripple-init>
+        <span class="mx-auto [&>svg]:h-5 [&>svg]:w-5">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 512 512">
+            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+            <path
+              d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+          </svg>
+        </span>
+      </a>
+
+      <a
+        href="#!"
+        type="button"
+        class="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+        data-twe-ripple-init>
+        <span class="mx-auto [&>svg]:h-5 [&>svg]:w-5">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 488 512">
+            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+            <path
+              d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
+          </svg>
+        </span>
+      </a>
+
+      <a
+        href="#!"
+        type="button"
+        class="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+        data-twe-ripple-init>
+        <span class="mx-auto [&>svg]:h-5 [&>svg]:w-5">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 448 512">
+            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+            <path
+              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+          </svg>
+        </span>
+      </a>
+
+      <a
+        href="#!"
+        type="button"
+        class="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+        data-twe-ripple-init>
+        <span class="mx-auto [&>svg]:h-5 [&>svg]:w-5">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 448 512">
+            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+            <path
+              d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
+          </svg>
+        </span>
+      </a>
+
+      <a
+        href="#!"
+        type="button"
+        class="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+        data-twe-ripple-init>
+        <span class="mx-auto [&>svg]:h-5 [&>svg]:w-5">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 496 512">
+            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+            <path
+              d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <!--Copyright section-->
+  <footer class="mt-8  text-white text-sm w-full bg-black/5 p-4 text-center">
+    <p>&copy; 2024 {{ 'FOOTER_TEXT' | translate }} </p>
+  </footer>
+</footer>
+
+
+
+
+
+
+
+  <div class="container p-6   ">
+    <div class="grid gap-4 md:grid-cols-3 lg:grid-cols-6">
+      <div class="mb-6 lg:mb-0">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1uNHh5S5MImoniGfUowSKHcRkSQGGzv37pA&s" class="w-full rounded-md shadow-lg" />
+      </div>
+      <div class="mb-6 lg:mb-0">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR08qQRB1Aoswnp4mCGoXvkNbLbLXhq8TzSmQ&s" class="w-full rounded-md shadow-lg" />
+      </div>
+      <div class="mb-6 lg:mb-0">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvoFh-jeZs3ljoxfycuIl2zCOh_CCQYWMt3g&s" class="w-full rounded-md shadow-lg" />
+      </div>
+      <div class="mb-6 lg:mb-0">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRihPjeexAm-DdM7VhTOfOP7fS0Ak8esdWFkQ&s" class="w-full rounded-md shadow-lg" />
+      </div>
+      <div class="mb-6 lg:mb-0">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX0O8K8vqPAGczcJIOQ4l0_v89LylVyyo6Zg&s" class="w-full rounded-md shadow-lg" />
+      </div>
+      <div class="mb-6 lg:mb-0">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-lHex7VPuIyLXZV1Xk_XocI2DgHAKt1xqlQ&s" class="w-full rounded-md shadow-lg" />
       </div>
     </div>
   </div>

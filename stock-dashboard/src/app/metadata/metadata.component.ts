@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import Chart from 'chart.js/auto';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-metadata',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, FormsModule],
+  imports: [CommonModule, HttpClientModule, FormsModule, TranslateModule, RouterModule],
   templateUrl: './metadata.component.html',
   styleUrls: ['./metadata.component.css'], // Correct property name
 })

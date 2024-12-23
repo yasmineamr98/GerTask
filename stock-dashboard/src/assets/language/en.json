@@ -50,8 +50,55 @@
   "About": "About",
   "Contact": "Contact",
   "TTerms&Conditions": "Terms and Conditions",
-  "Policy": "Privacy Policy"
+  "Policy": "Privacy Policy",
 
+
+  "SIDEBAR": {
+    "TRADING_STOCK": "Trading Stock",
+    "EXCHANGE": "Exchange",
+    "CANDLE": "Candle",
+    "METADATA": "Metadata"
+  },
+
+  "EXCHANGE_COMPANIES": "Exchange Companies",
+  "SEARCH_PLACEHOLDER": "Search by name or symbol",
+  "FILTER_TYPE": "Filter by Type",
+  "FILTER_COUNTRY": "Filter by Country",
+  "SYMBOL": "Symbol",
+  "NAME": "Name",
+  "TYPE": "Type",
+  "COUNTRY": "Country",
+  "CURRENCY": "Currency",
+  "PREVIOUS": "Previous",
+  "NEXT": "Next",
+  "OF": "of",
+  "FOOTER_TEXT": "Stock Market Dashboard | All Rights Reserved",
+  "CHART_LABEL": "Stock Value",
+
+
+  "EXCHANGE_COMPANIES": "Exchange Companies",
+  "SEARCH_PLACEHOLDER": "Search by name or symbol",
+  "FILTER_TYPE": "Filter by Type",
+  "STOCK": "Stock",
+  "CRYPTOCURRENCY": "Cryptocurrency",
+  "FUND": "Fund",
+  "MUTUAL_FUND": "Mutual Fund",
+  "INDEX": "Index",
+  "COMMODITY": "Commodity",
+  "EXCHANGE_TRADED_COMMODITY": "Exchange Traded Commodity",
+  "EXCHANGE_TRADED_FUND": "Exchange Traded Fund",
+  "FILTER_COUNTRY": "Filter by Country",
+  "GERMANY": "Germany",
+  "SYMBOL": "Symbol",
+  "NAME": "Name",
+  "TYPE": "Type",
+  "COUNTRY": "Country",
+  "CURRENCY": "Currency",
+  "PREVIOUS": "Previous",
+  "NEXT": "Next",
+  "OF": "of",
+  "CHART_LABEL": "Company Distribution by Type",
+  "FOOTER_TEXT": "All rights reserved."
 }
 
 

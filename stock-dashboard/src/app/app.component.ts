@@ -29,10 +29,13 @@ import { TermsandconditionComponent } from './termsandcondition/termsandconditio
   imports: [RouterOutlet, NavbarComponent, SidebarComponent, ExchangeComponent, MetadataComponent,
      CompanyListComponent, TranslateConfigModule, TranslateModule, FooterComponent ,
      CommonModule,HttpClientModule, PolicyComponent, TermsandconditionComponent],
+
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 
-})
+}) 
+
+
 export class AppComponent {
   title = 'stock-dashboard';
 
