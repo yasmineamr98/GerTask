@@ -1,145 +1,162 @@
-import { Component, OnInit,AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
-import { Chart } from 'chart.js';
+import { Chart } from 'chart.js/auto';
 
 @Component({
   selector: 'app-metadata',
   standalone: true,
   imports: [CommonModule, HttpClientModule, FormsModule, TranslateModule, RouterModule],
   templateUrl: './metadata.component.html',
-  styleUrls: ['./metadata.component.css'], // Correct property name
+  styleUrls: ['./metadata.component.css'],
 })
-export class MetadataComponent implements OnInit {
+export class MetadataComponent implements OnInit, AfterViewInit {
   metadata: any[] = [];
   paginatedData: any[] = [];
-  searchQuery: string = '';
-  selectedType: string = '';
-  selectedCountry: string = '';
   currentPage = 1;
   itemsPerPage = 5;
   totalPages = 0;
-  uniqueCountries: string[] = [];
 
-  constructor(private http: HttpClient) {}
+  searchQuery: string = '';
+  selectedType: string = '';
+  selectedCountry: string = '';
+  uniqueCountries: string[] = [];
+  chartInstance: any;
+
+  constructor(private http: HttpClient, private translate: TranslateService) {
+    this.translate.setDefaultLang('en'); // Set default language
+  }
 
   ngOnInit() {
     this.fetchData();
   }
 
+  ngAfterViewInit() {
+    // Listen for language changes to update the chart
+    this.translate.onLangChange.subscribe(() => {
+      this.createChart();
+    });
+  }
+
   fetchData() {
     this.http.get<any>('assets/metadata.json').subscribe((data) => {
-      console.log('Raw metadata:', data);
-
-      // Extract the `_source` data from hits
       const extractedData = data.hits.hits.map((hit: any) => hit._source);
-
-      console.log('Extracted data:', extractedData);
-
-      // Filter relevant data
       this.metadata = extractedData.filter((item: any) => item.symbol && item.type);
-
-      // Extract unique countries
-      this.uniqueCountries = [...new Set(this.metadata.map(item => item.countryName))];
-
-      console.log('Filtered metadata:', this.metadata);
-
-      // Setup pagination
+      this.uniqueCountries = [...new Set(this.metadata.map((item) => item.countryName))];
       this.totalPages = Math.ceil(this.metadata.length / this.itemsPerPage);
       this.paginate();
-
-      // Create the chart
       this.createChart();
     });
   }
 
   paginate() {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
-    this.paginatedData = this.metadata.slice(startIndex, endIndex);
-    console.log('Paginated data:', this.paginatedData);
-  }
-
-  changePage(page: number) {
-    this.currentPage = page;
-    this.paginate();
+    this.paginatedData = this.metadata.slice(startIndex, startIndex + this.itemsPerPage);
   }
 
   filterData() {
     let filteredData = this.metadata;
 
-    // Search filter
     if (this.searchQuery) {
-      filteredData = filteredData.filter(item =>
-        item.symbol.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-        item.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+      filteredData = filteredData.filter(
+        (item) =>
+          item.symbol.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+          item.name.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     }
 
-    // Type filter
     if (this.selectedType) {
-      filteredData = filteredData.filter(item => item.type === this.selectedType);
+      filteredData = filteredData.filter((item) => item.type === this.selectedType);
     }
 
-    // Country filter
     if (this.selectedCountry) {
-      filteredData = filteredData.filter(item => item.countryName === this.selectedCountry);
+      filteredData = filteredData.filter((item) => item.countryName === this.selectedCountry);
     }
 
-    // Update pagination and table data
-    this.metadata = filteredData;
     this.totalPages = Math.ceil(filteredData.length / this.itemsPerPage);
-    this.currentPage = 1; // Reset to the first page after filtering
+    this.metadata = filteredData;
     this.paginate();
   }
 
-  createChart() {
-    const chartData = this.metadata.reduce((acc: any, item) => {
-      acc[item.type] = (acc[item.type] || 0) + 1;
-      return acc;
-    }, {});
+  changePage(page: number) {
+    if (page > 0 && page <= this.totalPages) {
+      this.currentPage = page;
+      this.paginate();
+    }
+  }
 
-    const labels = Object.keys(chartData);
-    const values = Object.values(chartData) as number[];
+  createChart(): void {
+    const canvas = document.getElementById('candleChart') as HTMLCanvasElement;
+    if (canvas) {
+      if (this.chartInstance) {
+        this.chartInstance.destroy(); // Destroy the previous chart instance if it exists
+      }
 
-    new Chart('metadataChart', {
-      type: 'pie',
-      data: {
-        labels,
-        datasets: [
-          {
-            label: 'Metadata Types',
-            data: values,
-            backgroundColor: ['#28a745', '#007bff', '#ffc107'], // Green, Blue, Yellow for professional tones
-            borderColor: ['#218838', '#0069d9', '#e0a800'],
-            borderWidth: 1,
+      // Process data to get type counts
+      const typeCounts: { [key: string]: number } = {};
+      this.metadata.forEach((item) => {
+        const type = item.type.toLowerCase();
+        if (typeCounts[type]) {
+          typeCounts[type]++;
+        } else {
+          typeCounts[type] = 1;
+        }
+      });
+
+      const chartLabels = Object.keys(typeCounts);
+      const chartData = Object.values(typeCounts);
+
+      this.translate.get('CHART').subscribe(() => {
+        this.chartInstance = new Chart(canvas, {
+          type: 'pie', // Pie chart
+          data: {
+            labels: chartLabels, // Labels based on unique types
+            datasets: [
+              {
+                label: 'Types',
+                data: chartData, // Data based on the count of each type
+                backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)',
+                ],
+                borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)',
+                ],
+                borderWidth: 3,
+              },
+            ],
           },
-        ],
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top',
-            labels: {
-              font: {
-                size: 14,
-                weight: 'bold',
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                display: true,
+              },
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
               },
             },
           },
-          tooltip: {
-            enabled: true,
-            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-            titleFont: { size: 14, weight: 'bold' },
-            bodyFont: { size: 12 },
-          },
-        },
-      },
-    });
+        });
+      });
+    } else {
+      this.translate.get('CHART.ERROR').subscribe((errorMessage) => {
+        console.error(errorMessage);
+      });
+    }
   }
-
 }

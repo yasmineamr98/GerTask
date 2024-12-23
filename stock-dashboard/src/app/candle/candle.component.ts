@@ -1,10 +1,10 @@
-import { Component, OnInit,AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
-import { Chart } from 'chart.js';
+import { Chart } from 'chart.js/auto';
 
 @Component({
   selector: 'app-candle',
@@ -13,7 +13,7 @@ import { Chart } from 'chart.js';
   templateUrl: './candle.component.html',
   styleUrls: ['./candle.component.css'],
 })
-export class CandleComponent implements OnInit {
+export class CandleComponent implements OnInit, AfterViewInit {
   candles: any[] = [];
   paginatedData: any[] = [];
   currentPage = 1;
@@ -25,12 +25,21 @@ export class CandleComponent implements OnInit {
   uniqueCurrencies: string[] = [];
   sortColumn: string = ''; // For the column to sort
   sortOrder: 'asc' | 'desc' = 'asc'; // Sort order, default is ascending
+  chartInstance: any; // To store the chart instance
 
   constructor(private http: HttpClient, private translate: TranslateService) {
     this.translate.setDefaultLang('en'); // Set default language
   }
+
   ngOnInit() {
     this.fetchData();
+  }
+
+  ngAfterViewInit() {
+    // Listen for language changes to update the chart
+    this.translate.onLangChange.subscribe(() => {
+      this.createChart();
+    });
   }
 
   fetchData() {
@@ -98,6 +107,7 @@ export class CandleComponent implements OnInit {
     this.paginate();
   }
 
+
   createChart() {
     const chartData = this.candles.reduce((acc: any, candle) => {
       acc[candle.symbol] = (acc[candle.symbol] || 0) + candle.volume;
@@ -107,29 +117,57 @@ export class CandleComponent implements OnInit {
     const labels = Object.keys(chartData);
     const values = Object.values(chartData) as number[];
 
-    const ctx = document.getElementById('candleChart') as HTMLCanvasElement;
-
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: labels,
-        datasets: [{
-          label: 'Candle Volume',
-          data: values,
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1,
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
+    const canvas = document.getElementById('candleChart') as HTMLCanvasElement;
+    if (canvas) {
+      if (this.chartInstance) {
+        this.chartInstance.destroy(); // Destroy the previous chart instance if it exists
       }
-    });
-  }
+
+      this.translate.get('CHART').subscribe((translations) => {
+        this.chartInstance = new Chart(canvas, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: translations.CANDLE_VOLUME, // Use translated label
+                data: values,
+                backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                ],
+                borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                ],
+                borderWidth: 3,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                display: true,
+              },
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      });
+    } else {
+      this.translate.get('CHART.ERROR').subscribe((errorMessage) => {
+        console.error(errorMessage);
+      });
+    }}
 
   sortData(column: string) {
     this.sortOrder = this.sortColumn === column && this.sortOrder === 'asc' ? 'desc' : 'asc';

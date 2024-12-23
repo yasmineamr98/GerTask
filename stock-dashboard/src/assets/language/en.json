@@ -98,7 +98,67 @@
   "NEXT": "Next",
   "OF": "of",
   "CHART_LABEL": "Company Distribution by Type",
-  "FOOTER_TEXT": "All rights reserved."
+  "FOOTER_TEXT": "All rights reserved.",
+
+
+    "METADATA_COMPANIES": "Metadata Companies",
+    "SEARCH_PLACEHOLDER": "Search by symbol, name, type, country, currency...",
+    "FILTER_TYPE": "Filter by Type",
+    "STOCK": "Stock",
+    "ETF": "ETF",
+    "CURRENCY": "Currency",
+    "FILTER_COUNTRY": "Filter by Country",
+    "SYMBOL": "Symbol",
+    "NAME": "Name",
+    "TYPE": "Type",
+    "COUNTRY": "Country",
+    "CURRENCY": "Currency",
+
+
+    "CHART": {
+    "LABELS": {
+      "STOCK": "Stock",
+      "CRYPTO": "Crypto",
+      "ETF": "ETF",
+      "MUTUAL_FUND": "Mutual Fund"
+    },
+    "DATASET_LABEL": "Types",
+    "CANDLE_VOLUME": "Candle Volume",
+    "ERROR": "Canvas element not found."
+  },
+
+    "CandleData": "Candle Data",
+    "SearchBySymbol": "Search by Symbol",
+    "FilterByCurrency": "Filter by Currency",
+    "Symbol": "Symbol",
+    "StartPrice": "Start Price",
+    "EndPrice": "End Price",
+    "Volume": "Volume",
+    "Currency": "Currency",
+
+
+      "Candle Data": "Candle Data",
+      "Search by Symbol": "Search by Symbol",
+      "Filter by Currency": "Filter by Currency",
+
+
+
+          "STOCK": "Stock",
+          "CRYPTO": "Crypto",
+          "ETF": "ETF",
+          "MUTUAL_FUND": "Mutual Fund",
+          "TYPES": "Types"
+
+
+
+
+
+
+
+
+
+
+
 }
 
 

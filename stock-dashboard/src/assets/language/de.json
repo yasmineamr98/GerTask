@@ -98,7 +98,62 @@
     "NEXT": "Weiter",
     "OF": "von",
     "CHART_LABEL": "Unternehmensverteilung nach Typ",
-    "FOOTER_TEXT": "Alle Rechte vorbehalten."
+    "FOOTER_TEXT": "Alle Rechte vorbehalten.",
+
+
+
+      "METADATA_COMPANIES": "Metadata Unternehmen",
+      "SEARCH_PLACEHOLDER": "Suche nach Symbol, Name, Typ, Land, Währung...",
+      "FILTER_TYPE": "Filter nach Typ",
+      "STOCK": "Aktie",
+      "ETF": "ETF",
+      "CURRENCY": "Währung",
+      "FILTER_COUNTRY": "Filter nach Land",
+      "SYMBOL": "Symbol",
+      "NAME": "Name",
+      "TYPE": "Typ",
+      "COUNTRY": "Land",
+      "CURRENCY": "Währung",
+
+
+        "CHART": {
+          "LABELS": {
+            "STOCK": "Aktie",
+            "CRYPTO": "Krypto",
+            "ETF": "ETF",
+            "MUTUAL_FUND": "Investmentfonds"
+          },
+          "DATASET_LABEL": "Typen",
+          "CANDLE_VOLUME": "Kerzenvolumen",
+    "ERROR": "Canvas-Element nicht gefunden."
+        },
+
+"CandleData": "Kerzendaten",
+  "SearchBySymbol": "Suche nach Symbol",
+  "FilterByCurrency": "Nach Währung filtern",
+  "Symbol": "Symbol",
+  "StartPrice": "Startpreis",
+  "EndPrice": "Endpreis",
+  "Volume": "Volumen",
+  "Currency": "Währung",
+
+
+    "Candle Data": "Kerzen-Daten",
+    "Search by Symbol": "Suche nach Symbol",
+    "Filter by Currency": "Filtern nach Währung",
+
+
+
+
+      "STOCK": "Aktien",
+      "CRYPTO": "Krypto",
+      "ETF": "ETF",
+      "MUTUAL_FUND": "Fonds",
+      "TYPES": "Arten"
+
+
+
+
   }
 
 
