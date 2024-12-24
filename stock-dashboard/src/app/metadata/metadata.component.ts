@@ -52,14 +52,40 @@ export class MetadataComponent implements OnInit, AfterViewInit {
     });
   }
 
-  paginate() {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    this.paginatedData = this.metadata.slice(startIndex, startIndex + this.itemsPerPage);
-  }
+  // paginate() {
+  //   const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+  //   this.paginatedData = this.metadata.slice(startIndex, startIndex + this.itemsPerPage);
+  // }
+
+  // filterData() {
+  //   let filteredData = this.metadata;
+
+  //   if (this.searchQuery) {
+  //     filteredData = filteredData.filter(
+  //       (item) =>
+  //         item.symbol.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+  //         item.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+  //     );
+  //   }
+
+  //   if (this.selectedType) {
+  //     filteredData = filteredData.filter((item) => item.type === this.selectedType);
+  //   }
+
+  //   if (this.selectedCountry) {
+  //     filteredData = filteredData.filter((item) => item.countryName === this.selectedCountry);
+  //   }
+
+  //   this.totalPages = Math.ceil(filteredData.length / this.itemsPerPage);
+  //   this.metadata = filteredData;
+  //   this.paginate();
+  // }
 
   filterData() {
+    // Start with the original dataset
     let filteredData = this.metadata;
 
+    // Apply search query filter
     if (this.searchQuery) {
       filteredData = filteredData.filter(
         (item) =>
@@ -68,17 +94,29 @@ export class MetadataComponent implements OnInit, AfterViewInit {
       );
     }
 
+    // Apply type filter
     if (this.selectedType) {
       filteredData = filteredData.filter((item) => item.type === this.selectedType);
     }
 
+    // Apply country filter
     if (this.selectedCountry) {
       filteredData = filteredData.filter((item) => item.countryName === this.selectedCountry);
     }
 
+    // Update the total pages and paginated data
     this.totalPages = Math.ceil(filteredData.length / this.itemsPerPage);
-    this.metadata = filteredData;
-    this.paginate();
+    this.updatePaginatedData(filteredData);
+  }
+
+  paginate() {
+    // Trigger the filterData function to refresh data based on the filters
+    this.filterData();
+  }
+
+  updatePaginatedData(filteredData: any[]) {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    this.paginatedData = filteredData.slice(startIndex, startIndex + this.itemsPerPage);
   }
 
   changePage(page: number) {

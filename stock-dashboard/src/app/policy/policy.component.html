@@ -1,19 +1,44 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy</title>
+</head>
+<body>
 <!-- privacy-policy.component.html -->
-<div class="container mx-auto p-8">
-  <div class="text-center mb-8">
-    <h1 class="text-3xl font-semibold text-gray-800">Privacy Policy</h1>
-    <p class="text-lg text-gray-600">Effective Date: {{ 'privacy_date' | translate }}</p>
-  </div>
+<div class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 min-h-screen text-gray-200 font-roboto">
+  <div class="container mx-auto py-8 px-4 md:px-8">
+    <!-- Title Section -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-400 mb-4">
+        {{'Privacy Policy' | translate }}
+      </h1>
+      <!-- <p class="text-lg text-gray-400">{{ 'Effective Date: ' | translate }} {{ 'privacy_date' | translate }}</p> -->
+    </div>
 
-  <div class="space-y-6 text-gray-700">
-    <p>{{ 'privacy_information_collection' | translate }}</p>
-    <p>{{ 'privacy_use_information' | translate }}</p>
-    <p>{{ 'privacy_data_security' | translate }}</p>
-    <p>{{ 'privacy_sharing_information' | translate }}</p>
-    <p>{{ 'privacy_cookies' | translate }}</p>
-    <p>{{ 'privacy_user_rights' | translate }}</p>
-    <p>{{ 'privacy_data_retention' | translate }}</p>
-    <p>{{ 'privacy_changes' | translate }}</p>
+    <!-- Privacy Policy Content Section -->
+    <div class="space-y-6 text-gray-300">
+      <div class="space-y-4">
+        <p class="text-lg"> - {{ 'privacy_information_collection' | translate }}</p>
+        <p class="text-lg"> - {{ 'privacy_use_information' | translate }}</p>
+        <p class="text-lg"> - {{ 'privacy_data_security' | translate }}</p>
+        <p class="text-lg"> - {{ 'privacy_sharing_information' | translate }}</p>
+        <p class="text-lg"> - {{ 'privacy_cookies' | translate }}</p>
+        <p class="text-lg"> - {{ 'privacy_user_rights' | translate }}</p>
+        <p class="text-lg"> - {{ 'privacy_data_retention' | translate }}</p>
+        <p class="text-lg"> - {{ 'privacy_changes' | translate }}</p>
+      </div>
+    </div>
+
+    <!-- Acknowledgment Section -->
+    <div class="mt-12 text-center">
+      <button class="px-8 py-3 bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-800 transition duration-300 ease-in-out">
+        {{ 'Acknowledge Policy' | translate }}
+      </button>
+    </div>
   </div>
 </div>
+
+</body>
+</html>

@@ -1,16 +1,19 @@
-<div class="h-full w-64 bg-blue-900 text-white flex flex-col">
-  <div class="text-lg font-bold p-4 border-b border-blue-300 cursor-pointer">
-    {{ 'SIDEBAR.TRADING_STOCK' | translate }}
+<div class="h-full w-64 bg-gradient-to-b from-blue-900 to-green-800 text-white flex flex-col shadow-lg">
+  <!-- Sidebar Header -->
+  <div class="text-lg font-bold p-4 border-b border-green-300 cursor-pointer bg-gradient-to-r from-blue-700 to-green-700">
+    <span class="tracking-wide">{{ 'SIDEBAR.TRADING_STOCK' | translate }}</span>
   </div>
+
+  <!-- Sidebar Menu -->
   <ul class="flex-1 space-y-2 p-4">
     <li>
       <button
         (click)="navigateToTab('exchange')"
         [ngClass]="{
-          'bg-white text-blue-900': activeTab === 'exchange',
-          'hover:bg-white hover:text-blue-900 transition duration-300': activeTab !== 'exchange'
+          'bg-green-500 text-white': activeTab === 'exchange',
+          'hover:bg-green-600 hover:text-white transition duration-300 ease-in-out': activeTab !== 'exchange'
         }"
-        class="block w-full text-left px-4 py-2 rounded cursor-pointer"
+        class="block w-full text-left px-4 py-3 rounded-lg shadow-md transform hover:scale-105"
       >
         {{ 'SIDEBAR.EXCHANGE' | translate }}
       </button>
@@ -19,10 +22,10 @@
       <button
         (click)="navigateToTab('candle')"
         [ngClass]="{
-          'bg-white text-blue-900': activeTab === 'candle',
-          'hover:bg-white hover:text-blue-900 transition duration-300': activeTab !== 'candle'
+          'bg-green-500 text-white': activeTab === 'candle',
+          'hover:bg-green-600 hover:text-white transition duration-300 ease-in-out': activeTab !== 'candle'
         }"
-        class="block w-full text-left px-4 py-2 rounded cursor-pointer"
+        class="block w-full text-left px-4 py-3 rounded-lg shadow-md transform hover:scale-105"
       >
         {{ 'SIDEBAR.CANDLE' | translate }}
       </button>
@@ -31,13 +34,15 @@
       <button
         (click)="navigateToTab('metadata')"
         [ngClass]="{
-          'bg-white text-blue-900': activeTab === 'metadata',
-          'hover:bg-white hover:text-blue-900 transition duration-300': activeTab !== 'metadata'
+          'bg-green-500 text-white': activeTab === 'metadata',
+          'hover:bg-green-600 hover:text-white transition duration-300 ease-in-out': activeTab !== 'metadata'
         }"
-        class="block w-full text-left px-4 py-2 rounded cursor-pointer"
+        class="block w-full text-left px-4 py-3 rounded-lg shadow-md transform hover:scale-105"
       >
         {{ 'SIDEBAR.METADATA' | translate }}
       </button>
     </li>
   </ul>
+
+
 </div>

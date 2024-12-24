@@ -15,6 +15,7 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
   activeTab: string = 'exchange';
+currentYear: any;
 
   constructor(private router: Router) {}
 
@@ -27,4 +28,5 @@ export class SidebarComponent implements OnInit {
     this.activeTab = tab;
     this.router.navigate([`/${tab}`]);
   }
+  
 }

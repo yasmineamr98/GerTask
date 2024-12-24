@@ -8,7 +8,9 @@
 
   "ABOUT":{
     "TITLE": "Über Investify",
-      "CONTENT": "Investify ist eine führende Plattform, die es Einzelpersonen und Unternehmen ermöglicht, die Komplexitäten des Aktienmarkts mit Zuversicht zu meistern. Mit der Vision gegründet, Investitionen zu demokratisieren, kombiniert Investify modernste Technologie, Expertenwissen und einen benutzerzentrierten Ansatz, um den Handel auf dem Aktienmarkt zugänglich und lohnend für alle zu machen.\n\nUnsere Plattform bietet eine umfassende Palette an Werkzeugen, darunter Echtzeit-Marktdaten, personalisierte Anlageempfehlungen und fortschrittliche Analysen, die auf die unterschiedlichen Bedürfnisse unserer Nutzer zugeschnitten sind. Egal, ob Sie ein erfahrener Händler oder ein Erstinvestor sind, Investify stellt Ihnen das Wissen und die Ressourcen zur Verfügung, die Sie für fundierte finanzielle Entscheidungen benötigen.\n\nBei Investify legen wir Wert auf Transparenz, Sicherheit und Innovation. Mit einer globalen Gemeinschaft von Investoren streben wir danach, die Finanzkompetenz zu fördern und unsere Nutzer zu befähigen, ihre finanziellen Ziele zu erreichen. Unser Team erfahrener Fachleute ist bestrebt, unvergleichlichen Service zu bieten und ein nahtloses Handelserlebnis zu schaffen.\n\nInvestieren Sie in Ihre Zukunft mit Investify—wo Möglichkeiten auf Fachwissen treffen."
+    "DESCRIPTION": "Beschreibung",
+    "ADDITIONAL_INFO": "Weitere Informationen",
+    "CONTENT": "Investify ist eine führende Plattform, die es Einzelpersonen und Unternehmen ermöglicht, die Komplexitäten des Aktienmarkts mit Zuversicht zu meistern. Mit der Vision gegründet, Investitionen zu demokratisieren, kombiniert Investify modernste Technologie, Expertenwissen und einen benutzerzentrierten Ansatz, um den Handel auf dem Aktienmarkt zugänglich und lohnend für alle zu machen.\n\nUnsere Plattform bietet eine umfassende Palette an Werkzeugen, darunter Echtzeit-Marktdaten, personalisierte Anlageempfehlungen und fortschrittliche Analysen, die auf die unterschiedlichen Bedürfnisse unserer Nutzer zugeschnitten sind. Egal, ob Sie ein erfahrener Händler oder ein Erstinvestor sind, Investify stellt Ihnen das Wissen und die Ressourcen zur Verfügung, die Sie für fundierte finanzielle Entscheidungen benötigen.\n\nBei Investify legen wir Wert auf Transparenz, Sicherheit und Innovation. Mit einer globalen Gemeinschaft von Investoren streben wir danach, die Finanzkompetenz zu fördern und unsere Nutzer zu befähigen, ihre finanziellen Ziele zu erreichen. Unser Team erfahrener Fachleute ist bestrebt, unvergleichlichen Service zu bieten und ein nahtloses Handelserlebnis zu schaffen.\n\nInvestieren Sie in Ihre Zukunft mit Investify—wo Möglichkeiten auf Fachwissen treffen."
   },
   "CONTACT": {
     "TITLE": "Kontaktieren Sie uns",
@@ -16,8 +18,13 @@
     "EMAIL": "E-Mail",
     "ADDRESS": "Adresse",
     "PHONE_VALUE": "+49 (800) 123-4567",
-    "EMAIL_VALUE": "support@investify.de",
-    "ADDRESS_VALUE": "123 Wallstraße, Berlin, 10179, Deutschland"
+    "EMAIL_VALUE": "support@investify.com",
+    "ADDRESS_VALUE": "123 Wallstraße, Berlin, 10179, Deutschland",
+    "CONTACT":"Kontakt",
+    "SUBMIT":"Senden",
+   "NAME_PLACEHOLDER": "Name eingeben",
+    "EMAIL_PLACEHOLDER": "E-Mail eingeben",
+    "MESSAGE_PLACEHOLDER": "Nachricht eingeben"
   },
 
 "SIDEBAR": {
@@ -27,7 +34,7 @@
     "METADATA": "Metadaten"
   },
 
-  "terms_date": "Gültigkeitsdatum: [Datum einfügen]",
+  "terms_date": "Gültigkeitsdatum",
   "terms_acceptance": "Durch den Zugriff auf und die Nutzung der Plattform erklären Sie sich mit diesen Allgemeinen Geschäftsbedingungen einverstanden.",
   "terms_services": "Wir bieten eine Plattform für Investitionen in den Aktienmarkt, einschließlich Echtzeitdaten, Aktienanalysen und Transaktionsfunktionen.",
   "terms_eligibility": "Sie müssen mindestens 18 Jahre alt sein und in der Lage sein, verbindliche Verträge abzuschließen.",
@@ -41,7 +48,7 @@
   "terms_law": "Diese Bedingungen unterliegen den Gesetzen von [Jurisdiktion].",
   "terms_changes": "Wir können diese Bedingungen aktualisieren, und die neueste Version wird auf der Plattform veröffentlicht.",
 
-  "privacy_date": "Gültigkeitsdatum: [Datum einfügen]",
+  "privacy_date": "Gültigkeitsdatum",
   "privacy_information_collection": "Wir erheben persönliche Daten, wenn Sie unsere Plattform nutzen, einschließlich Ihres Namens, Ihrer E-Mail-Adresse und finanzieller Daten.",
   "privacy_use_information": "Wir verwenden Ihre Daten, um angeforderte Dienstleistungen bereitzustellen und mit Ihnen zu kommunizieren.",
   "privacy_data_security": "Wir ergreifen Sicherheitsmaßnahmen, um Ihre persönlichen Daten zu schützen.",
@@ -57,7 +64,7 @@
     "Contact": "Kontakt",
     "Terms&Conditions": "Allgemeine Geschäftsbedingungen",
     "Policy": "Datenschutzrichtlinie",
-
+    "Accept Terms": "Allgemeine Geschäftsbedingungen akzeptieren",
 
     "EXCHANGE_COMPANIES": "Börsengesellschaften",
   "SEARCH_PLACEHOLDER": "Suche nach Name oder Symbol",
@@ -99,16 +106,18 @@
     "OF": "von",
     "CHART_LABEL": "Unternehmensverteilung nach Typ",
     "FOOTER_TEXT": "Alle Rechte vorbehalten.",
+    "FILTER_CURRENCY": "Nach Währung filtern",
+    "FILTER": "Filtern",
 
 
 
-      "METADATA_COMPANIES": "Metadata Unternehmen",
+      "METADATA_COMPANIES": "Metadaten Unternehmen",
       "SEARCH_PLACEHOLDER": "Suche nach Symbol, Name, Typ, Land, Währung...",
-      "FILTER_TYPE": "Filter nach Typ",
+      "FILTER_TYPE": "Filtern nach Typ",
       "STOCK": "Aktie",
       "ETF": "ETF",
       "CURRENCY": "Währung",
-      "FILTER_COUNTRY": "Filter nach Land",
+      "FILTER_COUNTRY": "Filtern nach Land",
       "SYMBOL": "Symbol",
       "NAME": "Name",
       "TYPE": "Typ",
@@ -138,10 +147,14 @@
   "Currency": "Währung",
 
 
+
     "Candle Data": "Kerzen-Daten",
     "Search by Symbol": "Suche nach Symbol",
     "Filter by Currency": "Filtern nach Währung",
 
+    "Acknowledge Policy": "Datenschutzrichtlinie akzeptieren",
+    "Privacy Policy": "Datenschutzrichtlinie",
+    "Terms and Conditions": "Allgemeine Geschäftsbedingungen",
 
 
 

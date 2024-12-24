@@ -6,52 +6,63 @@
   <title>Navbar</title>
 </head>
 <body>
-  <nav class="bg-blue-900 text-white shadow-md">
+  <nav class="bg-gradient-to-r from-blue-900 to-green-700 text-white shadow-lg">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <!-- Logo -->
-        <div class="flex items-center">
-          <img src="assets/photos/logo.jpg" alt="Logo" class="h-11 w-11">
-          <a routerLink="/" class="ml-4 text-xl font-bold hover:underline">INVESTIFY</a>
+        <div class="flex items-center -ml-6 transform transition-transform duration-300 ease-in-out hover:scale-105">
+          <img src="assets/photos/logo.jpg" alt="Logo" class="h-12 w-12 rounded-full shadow-md">
+          <a routerLink="/" class="ml-3 text-2xl font-bold tracking-wide hover:underline">
+            INVESTIFY
+          </a>
         </div>
 
-        <!-- Search Bar -->
-        <div class="hidden md:block w-1/3">
+        <!-- Search Bar (Hidden on small screens) -->
+        <div class="hidden md:block w-1/3 relative">
           <input
             type="text"
             placeholder="{{ 'NAVBAR.SEARCH_PLACEHOLDER' | translate }}"
             [(ngModel)]="searchTerm"
             (input)="onSearch()"
-            class="w-full px-4 py-2 rounded-lg bg-white-800 text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="w-full px-4 py-2 rounded-lg bg-white text-blue-900 focus:outline-none focus:ring-4 focus:ring-green-500 shadow-md transition-all duration-300"
           />
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute right-4 top-3 text-blue-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 16l4-4m0 0l-4-4m4 4H6" />
+          </svg>
         </div>
 
         <!-- Navigation Links -->
         <div class="hidden md:flex space-x-6">
-          <a routerLink="/exchange" class="hover:underline cursor-pointer">{{ 'NAVBAR.HOME' | translate }}</a>
-          <a routerLink="/about"class="hover:underline cursor-pointer">{{ 'NAVBAR.ABOUT' | translate }} </a>
-          <a routerLink="/contact" class="hover:underline cursor-pointer">{{ 'NAVBAR.CONTACT' | translate }}</a>
+          <a routerLink="/exchange" class="hover:underline hover:text-green-300 transition-colors duration-300 cursor-pointer">
+            {{ 'NAVBAR.HOME' | translate }}
+          </a>
+          <a routerLink="/about" class="hover:underline hover:text-green-300 transition-colors duration-300 cursor-pointer">
+            {{ 'NAVBAR.ABOUT' | translate }}
+          </a>
+          <a routerLink="/contact" class="hover:underline hover:text-green-300 transition-colors duration-300 cursor-pointer">
+            {{ 'NAVBAR.CONTACT' | translate }}
+          </a>
         </div>
 
-        <!-- Language Toggle -->
+        <!-- Language Toggle (Hidden on small screens) -->
         <div class="hidden md:flex space-x-4">
           <button
-            class="px-6 py-3 bg-blue-700 text-white font-semibold rounded-full shadow-md hover:bg-blue-900 transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer"
+            class="px-6 py-2 bg-green-600 text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transform transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer"
             (click)="toggleLanguage('en')"
           >
             EN
           </button>
           <button
-            class="px-6 py-3 bg-blue-700 text-white font-semibold rounded-full shadow-md hover:bg-blue-900 transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer"
+            class="px-6 py-2 bg-green-600 text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transform transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer"
             (click)="toggleLanguage('de')"
           >
             DE
           </button>
         </div>
 
-        <!-- Mobile Menu Button -->
+        <!-- Mobile Menu Button (Visible only on small screens) -->
         <div class="md:hidden flex items-center">
-          <button (click)="toggleMobileMenu()" class="p-2 text-gray-400 hover:text-white">
+          <button (click)="toggleMobileMenu()" class="p-2 text-white hover:text-green-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
@@ -61,8 +72,11 @@
     </div>
   </nav>
 
-  <!-- Display Not Found
-  <div *ngIf="noResultsFound" class="container mx-auto mt-8 text-center text-red-500">
+  <!-- Not Found Message (Optional) -->
+  <!-- <div
+    *ngIf="noResultsFound"
+    class="container mx-auto mt-8 text-center text-red-500"
+  >
     <h2 class="text-2xl font-bold">404 - Not Found</h2>
     <p>{{ 'NAVBAR.NOT_FOUND' | translate }}</p>
   </div> -->

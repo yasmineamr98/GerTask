@@ -9,21 +9,27 @@
   "ABOUT":{
     "TITLE": "About Investify",
 
-    "CONTENT": "Investify is a leading platform dedicated to empowering individuals and businesses to navigate the complexities of the stock market with confidence. Established with a vision to democratize investing, Investify combines cutting-edge technology, expert insights, and a user-centric approach to make stock market trading accessible and rewarding for everyone.\n\nOur platform provides a comprehensive suite of tools, including real-time market data, personalized investment recommendations, and advanced analytics, tailored to meet the diverse needs of our users. Whether you're a seasoned trader or a first-time investor, Investify equips you with the knowledge and resources needed to make informed financial decisions.\n\nAt Investify, we prioritize transparency, security, and innovation. With a global community of investors, we aim to foster financial literacy and empower our users to achieve their financial goals. Our team of experienced professionals is committed to delivering unparalleled service and creating a seamless trading experience.\n\nInvest in your future with Investify—where possibilities meet expertise."
-
+    "CONTENT": "Investify is a leading platform dedicated to empowering individuals and businesses to navigate the complexities of the stock market with confidence. Established with a vision to democratize investing, Investify combines cutting-edge technology, expert insights, and a user-centric approach to make stock market trading accessible and rewarding for everyone.\n\nOur platform provides a comprehensive suite of tools, including real-time market data, personalized investment recommendations, and advanced analytics, tailored to meet the diverse needs of our users. Whether you're a seasoned trader or a first-time investor, Investify equips you with the knowledge and resources needed to make informed financial decisions.\n\nAt Investify, we prioritize transparency, security, and innovation. With a global community of investors, we aim to foster financial literacy and empower our users to achieve their financial goals. Our team of experienced professionals is committed to delivering unparalleled service and creating a seamless trading experience.\n\nInvest in your future with Investify—where possibilities meet expertise.",
+    "DESCRIPTION":"description",
+    "ADDITIONAL_INFO":"additional info"
   },
   "CONTACT": {
     "TITLE": "Contact Us",
     "PHONE": "Phone",
     "EMAIL": "Email",
     "ADDRESS": "Address",
-    "PHONE_VALUE": "+1 (800) 123-4567",
+    "PHONE_VALUE": "+49 (800) 123-4567",
     "EMAIL_VALUE": "support@investify.com",
-    "ADDRESS_VALUE": "123 Wall Street, New York, NY 10005, USA"
+    "ADDRESS_VALUE": "123 Wall Street, New York, NY 10005, USA",
+       "CONTACT":"CONTACT",
+    "SUBMIT":"SUBMIT",
+    "NAME_PLACEHOLDER": "Enter your name",
+    "EMAIL_PLACEHOLDER": "Enter your email",
+    "MESSAGE_PLACEHOLDER": "Enter your message"
   },
 
 
-  "terms_date": "Effective Date: [Insert Date]",
+  "terms_date": "Effective Date",
   "terms_acceptance": "By accessing and using the platform, you agree to be bound by these Terms and Conditions.",
   "terms_services": "We provide a platform for stock market investments including real-time data, stock analysis, and transaction features.",
   "terms_eligibility": "You must be at least 18 years old and legally capable of entering into binding contracts.",
@@ -37,7 +43,7 @@
   "terms_law": "These terms are governed by the laws of [Jurisdiction].",
   "terms_changes": "We may update these terms, and the latest version will be posted on the platform.",
 
-  "privacy_date": "Effective Date: [Insert Date]",
+  "privacy_date": "Effective Date",
   "privacy_information_collection": "We collect personal data when you use our platform, including your name, email, and financial details.",
   "privacy_use_information": "We use your data to provide requested services and communicate with you.",
   "privacy_data_security": "We implement security measures to protect your personal data.",
@@ -51,7 +57,7 @@
   "Contact": "Contact",
   "TTerms&Conditions": "Terms and Conditions",
   "Policy": "Privacy Policy",
-
+  "Accept Terms": "Accept Terms",
 
   "SIDEBAR": {
     "TRADING_STOCK": "Trading Stock",
@@ -142,7 +148,9 @@
       "Filter by Currency": "Filter by Currency",
 
 
-
+      "Acknowledge Policy": "Acknowledge Policy",
+      "Privacy Policy": "Privacy Policy",
+      "Terms and Conditions": "Terms and Conditions",
           "STOCK": "Stock",
           "CRYPTO": "Crypto",
           "ETF": "ETF",
